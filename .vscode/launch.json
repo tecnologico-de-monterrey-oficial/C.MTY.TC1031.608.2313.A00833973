@@ -1,0 +1,24 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "cppdbg",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": false,
+      "externalConsole": true,
+      "cwd": "c:/Users/valer/OneDrive/Escritorio/Documentos/TEC/3 semestre/Estructura de datos y algoritmos fundamentales/C.MTY.TC1031.608.2313.A00833973/Assignments/Act1.1-Templates",
+      "program": "c:/Users/valer/OneDrive/Escritorio/Documentos/TEC/3 semestre/Estructura de datos y algoritmos fundamentales/C.MTY.TC1031.608.2313.A00833973/Assignments/Act1.1-Templates/build/Debug/outDebug",
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
+    }
+  ]
+}
