@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/valer/OneDrive/Escritorio/Documentos/TEC/3 semestre/Estructura de datos y algoritmos fundamentales/C.MTY.TC1031.608.2313.A00833973/Assignments/Act1.1-Templates",
-      "program": "c:/Users/valer/OneDrive/Escritorio/Documentos/TEC/3 semestre/Estructura de datos y algoritmos fundamentales/C.MTY.TC1031.608.2313.A00833973/Assignments/Act1.1-Templates/build/Debug/outDebug",
+      "cwd": "c:/Users/valer/OneDrive/Escritorio/Documentos/TEC/3 semestre/Estructura de datos y algoritmos fundamentales/C.MTY.TC1031.608.2313.A00833973/Assignments/Act1.2-Recursion",
+      "program": "c:/Users/valer/OneDrive/Escritorio/Documentos/TEC/3 semestre/Estructura de datos y algoritmos fundamentales/C.MTY.TC1031.608.2313.A00833973/Assignments/Act1.2-Recursion/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
