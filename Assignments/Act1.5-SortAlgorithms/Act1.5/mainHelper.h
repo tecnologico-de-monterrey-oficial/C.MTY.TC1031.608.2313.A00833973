@@ -155,6 +155,7 @@ int search(vector< T> list, int alg){
     return index;
 }
 
+
 template <class T>
 void sortAndSearch(vector<T> list, int& sortAlg, int& searchAlg, int& index){
     
@@ -167,4 +168,3 @@ void sortAndSearch(vector<T> list, int& sortAlg, int& searchAlg, int& index){
     index = search(list, searchAlg);
         
 }
-

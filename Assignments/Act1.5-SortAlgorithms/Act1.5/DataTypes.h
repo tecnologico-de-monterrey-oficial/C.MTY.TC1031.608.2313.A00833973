@@ -32,22 +32,3 @@ void createListHour(vector<Hour> &list, int quantity){
         list.push_back(h);
     }
 }
-// }
-
-// template <class T>
-// int getListByType(vector<T> list, int type, int size){
-//     switch (type)
-//     {
-//     case 0:
-//         createListInt(list,size);
-//         return 0;
-//     case 1:
-//         createListChar(list,size);
-//         return 0;
-//     case 3:
-//         createListTime(list,size);
-//         return 0;
-//     default:
-//         return (-1);
-//     }
-// }
