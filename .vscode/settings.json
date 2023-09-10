@@ -58,7 +58,8 @@
   "files.associations": {
     "*.aspx": "csharp",
     "*.svg": "html",
-    "ostream": "cpp",
-    "iostream": "cpp"
+    "iostream": "cpp",
+    "string": "cpp",
+    "iosfwd": "cpp"
   }
 }

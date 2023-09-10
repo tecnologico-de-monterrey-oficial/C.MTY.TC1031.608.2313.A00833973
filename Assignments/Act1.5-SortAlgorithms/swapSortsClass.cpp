@@ -35,23 +35,26 @@ int main()
     int compar = 0;
     int swit = 0;
     printVector(list);
-    cout << endl;
-    swapSort(list, compar, swit);
-    printVector(list);
-    cout <<endl << "Comparisons: " << compar << " Switches: " <<swit << endl;
 
     cout << endl;
+
+    swapSort(list, compar, swit);
+    printVector(list);
+
+    cout <<endl << "Comparisons: " << compar << " Switches: " <<swit << endl;
+    cout << endl;
+
+
     vector<string> list2 = {"s","e","r","g","h","p"};
     int compar2 = 0;
     int swit2 = 0;
-
 
     printVector(list2);
     cout << endl;
     swapSort(list2, compar2, swit2);
     printVector(list2);
+
     cout << endl <<  "Comparisons: " << compar2 << " Switches: " <<swit2 << endl;
-    
     
     return 0;
 }
