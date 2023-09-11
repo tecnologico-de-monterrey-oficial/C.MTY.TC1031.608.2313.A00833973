@@ -9,85 +9,59 @@
 #include <sstream>
 using namespace std;
 
-#include "Log.h"
-#include "Algorithms.h"
-#include "mainHelper.h"
+#include "Log.h"          // Incluye la definición de la clase Log
+#include "Algorithms.h"   // Incluye funciones de algoritmos de ordenamiento
+#include "mainHelper.h"   // Incluye funciones auxiliares para el programa principal
 
 int main() {
-
     // Archivo de entrada
     string inText = "log608.txt";
-    ifstream fileIn(inText);
-    // Archivo de salida
+    // Archivo de salida principal
     string fileOut = "output608.out";
+    // Archivo de salida para el rango seleccionado
     string fileRange = "range608.out";
 
-    // Variable auxiliar para guardar el contenido del renglón leido
-    string line;
-    // Variable auxiliar para guardar el contenido de cada palabra del campo message
-    string word;
-    // Variables auxiliares para guardar el contenido de cada campo del archivo
-    string year;
-    string month;
-    string day;
-    string time;
-    string ip;
-    string message;
-
-    // Lista de elementos
+    // Lista de elementos de tipo Log (registros de log)
     vector<Log> logs;
-    // Variable auxiliar para guardar el contador de registros
-    int cont = 0;
-    cout << "LOG REGISTER OF ERRORS" << endl << endl;
-    cout << "Reading: " << inText << endl;
-    // Ciclo para leer todo los renglones del archivo de entrada
-    while (getline(fileIn,line)) { 
 
-        // Creamos una variable auxiliar ss para recorrer campo por campo
-        stringstream ss(line);
-        // Guardamos la información de cada campo en la variable auxiliar correspondiente
-        ss >> month >> day >> year >> time >> ip >> message;
-        // Ciclo para recorrer cada palabra del campo message
-        while (ss >> word) {
-            message = message + " " + word;
-        }
+    cout << endl << "LOG REGISTER OF ERRORS" << endl << endl;
+    cout << "Reading document (" << inText << ") ... ";
+    // Lee los registros de log del archivo de entrada y los almacena en el vector logs
+    readLogDocument(inText, logs);
+    cout << " [READY]" << endl << endl;
 
-        Log log(year, month, day, time, ip, message);
-        logs.push_back(log);
+    cout << "Number of logs: " << logs.size() << endl << endl;
 
-        // Incrementamos el contador de registros
-        cont++;
-
-    }
-    cout << "Sorting..."<< endl;
+    cout << "Sorting...";
+    // Ordena los registros de log utilizando el algoritmo de ordenamiento quicksort
     quickSort(logs);
-    
-    cout << "Amount of logs: " << cont << endl;
-    cout << "Writing sorted document..."<<endl;
-    writeFile(fileOut,logs);
+    cout << " [READY]" << endl;
+
+    cout << "Writing sorted document (" << fileOut << ")...";
+    // Escribe los registros ordenados en un archivo de salida
+    writeFile(fileOut, logs);
+    cout << " [READY]" << endl;
 
     char control = 'a';
-
-    cout << "Select by range - [Y/N]: " ;
+    cout << endl;
+    cout << "Select by range? - [Y/N]: ";
     cin >> control;
-    
-    while (control == 'Y' || control == 'y'){
 
+    while (control == 'Y' || control == 'y') {
         vector<Log> logRange;
-
-
+        // Obtiene un rango específico de registros de log
         getRange(logs, logRange);
 
-        cout << "Writing file..."<<endl;
+        cout << "Writing file (" << fileRange << ")...";
+        // Escribe los registros del rango seleccionado en un archivo de salida
         writeFile(fileRange, logRange);
+        cout << " [READY]" << endl << endl;
 
-        cout << "File ready"<<endl<<endl;
-        cout << "Select by range again? - [Y/N]: " ;
+        cout << "Select by range again? - [Y/N]: ";
         cin >> control;
     }
-    
 
-    cout << "Close"<<endl;
+    cout << endl << "Close program" << endl;
 
     return 0;
 }
