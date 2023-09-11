@@ -60,6 +60,9 @@
     "*.svg": "html",
     "iostream": "cpp",
     "string": "cpp",
-    "iosfwd": "cpp"
-  }
+    "iosfwd": "cpp",
+    "ostream": "cpp",
+    "fstream": "cpp"
+  },
+  "C_Cpp.errorSquiggles": "disabled"
 }
