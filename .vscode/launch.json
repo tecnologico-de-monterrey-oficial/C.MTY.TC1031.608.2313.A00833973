@@ -1,6 +1,7 @@
 {
   "version": "0.2.0",
   "configurations": [
+  
     {
       "name": "C/C++ Runner: Debug Session",
       "type": "cppdbg",
@@ -8,8 +9,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/valer/OneDrive/Escritorio/Documentos/TEC/3 semestre/Estructura de datos y algoritmos fundamentales/C.MTY.TC1031.608.2313.A00833973/Assignments/Act1.5-SortAlgorithms",
-      "program": "c:/Users/valer/OneDrive/Escritorio/Documentos/TEC/3 semestre/Estructura de datos y algoritmos fundamentales/C.MTY.TC1031.608.2313.A00833973/Assignments/Act1.5-SortAlgorithms/build/Debug/outDebug",
+      "cwd": "c:/Users/valer/OneDrive/Escritorio/Documentos/TEC/3 semestre/Estructura de datos y algoritmos fundamentales/C.MTY.TC1031.608.2313.A00833973/Assignments/Act2.1-LinkedList",
+      "program": "c:/Users/valer/OneDrive/Escritorio/Documentos/TEC/3 semestre/Estructura de datos y algoritmos fundamentales/C.MTY.TC1031.608.2313.A00833973/Assignments/Act2.1-LinkedList/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
