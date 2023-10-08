@@ -1,0 +1,20 @@
+
+
+// Abra el archivo de entrada llamado  log608-2.txt Download log608-2.txtléalo y almacene los datos en una Doubly Linked List. (Formato del archivo log602.txt)
+// Genera un menú con las siguientes opciones:
+// Ordena los datos por fecha y hora. (Utiliza QuickSort o MergeSort)
+// Genera un archivo de salida llamado output602-1.out
+// Ordena los datos por ip, fecha y hora. (Utiliza QuickSort o MergeSort)
+// Genera un archivo de salida llamado output602-2.out
+
+// Búsqueda por rango de ip's con el algoritmo de búsqueda secuencial:
+// Pide al usuario un rango de ips
+// Busca todas las ips que se encuentren en el rango solicitado.
+// Guardo los registros dentro de ese rango en una DoublyLinkedList
+// Genera un archivo de salida llamado iprange602-a.out con los datos de la búsqueda en orden ascendente
+// Genera un archivo de salida llamado iprange602-d.out con los datos de la búsqueda en orden descendente
+// Sumatoria de datos.
+// Despliega en pantalla la cantidad de ips en el archivo por cada año y mes
+// Salir
+    
+01000000000000000000000000  

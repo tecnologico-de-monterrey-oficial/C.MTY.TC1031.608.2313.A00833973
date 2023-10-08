@@ -1,6 +1,7 @@
 #ifndef DoublyLinkedList_h
 #define DoublyLinkedList_h
 #include "DNode.h"
+#include "Log.h"
 template <class T>
 class DoublyLinkedList
 {
@@ -17,6 +18,8 @@ public:
     T getFirst();
     T getLast();
     
+    DNode<T>* getHead();
+    DNode<T>* getTail();
     void addFirst(T);
     void addLast(T);
     void insert(int, T);
@@ -32,7 +35,7 @@ public:
     int findData(T);
 
     void clear();
-    void sort();
+    void sort(bool);
     void duplicate();
     void removeDuplicate();
 
@@ -80,6 +83,15 @@ template <class T>
 T DoublyLinkedList<T>::getLast()
 {
     return tail->data;
+}
+
+template <class T>
+DNode<T>* DoublyLinkedList<T>::getHead(){
+    return head;
+}
+template <class T>
+DNode<T>* DoublyLinkedList<T>::getTail(){
+    return tail;
 }
 
 template <class T>
@@ -290,6 +302,8 @@ int DoublyLinkedList<T>::findData(T data){
     return -1;
 }
 
+
+
 template <class T>
 void DoublyLinkedList<T>::clear(){
     DNode<T>* temp;
@@ -301,8 +315,8 @@ void DoublyLinkedList<T>::clear(){
 }
 
 template <class T>
-void DoublyLinkedList<T>::sort(){
-    quickSort(*this, head, tail);
+void DoublyLinkedList<T>::sort(bool IP){
+    quickSort(head, tail,IP);
 }
 
 template <class T>
@@ -493,23 +507,31 @@ void DoublyLinkedList<T>::operator=(DoublyLinkedList<T> list){
 
 template <class T>
 void swap(DNode<T>* a, DNode<T>* b){
-       if(a -> data != b -> data){
+    if(a -> data != b -> data){
         T auxData = a -> data;
         a ->data = b->data; 
         b -> data = auxData; 
     }
 }
 
-template <class T>
-DNode<T>* getPivot(DNode<T>* left, DNode<T>* right){
-    T pivot = right->data;
-    DNode<T>* i = left->prev;
+DNode<Log>* getPivot(DNode<Log>* left, DNode<Log>* right,bool IP){
+    Log pivot = right->data;
+    DNode<Log>* i = left->prev;
 
-    for(DNode<T>* j = left; j != right; j = j->next){
-        if(j->data <= pivot){
-            i = (i == nullptr) ? left: i->next;
-            swap(i,j);
+    for(DNode<Log>* j = left; j != right; j = j->next){
+        if(!IP){
+            if(j->data <= pivot){
+                i = (i == nullptr) ? left: i->next;
+                swap(i,j);
+            }
         }
+        else{
+            if(j->data.keyIP <= pivot.keyIP){
+                i = (i == nullptr) ? left: i->next;
+                swap(i,j);
+            }
+        }
+        
     }
     i = (i == nullptr) ? left: i->next;
     swap(i,right);
@@ -518,13 +540,14 @@ DNode<T>* getPivot(DNode<T>* left, DNode<T>* right){
 }
 
 
-template <class T>
-void quickSort( DNode<T>* left, DNode<T>* right){
+void quickSort(DNode<Log>* left, DNode<Log>* right, bool IP){
     if(right != nullptr && left != right && left != right->next){
-        DNode<T>* pivot = getPivot(left, right);
-        quickSort(left, pivot->prev);
-        quickSort(pivot->next, right);
+        DNode<Log>* pivot = getPivot(left, right , IP);
+        quickSort(left, pivot->prev,IP);
+        quickSort(pivot->next, right,IP);
     }
 }
+
+
 
 #endif
