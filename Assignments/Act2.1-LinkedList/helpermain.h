@@ -1,6 +1,9 @@
 #pragma once
 #include "LinkedList.h"
 
+
+//añade elementos random a la lista, dada cierta cantidad;
+
 template <class T>
 void createRandomList(LinkedList<T>& list, int quantity)
 {
@@ -13,6 +16,8 @@ void createRandomList(LinkedList<T>& list, int quantity)
 }
 
 
+//Menu visual para el usuario sobre la elección del 
+//tipo de dato a escoger
 void menuDataType(int& type){
     cout << endl;
     cout << "Choose data type"<<endl;
@@ -22,6 +27,8 @@ void menuDataType(int& type){
         cin >> type;
     }
 }
+
+//Menu de opciones para el usuario 
 void menu(int& option ){
     option = -1;
     while (option < 0 || option>14){
@@ -47,12 +54,16 @@ void menu(int& option ){
     }
 }
 
+/// @brief Menu de opciones
+/// @tparam T 
+/// @param list  LinkedList
+/// @param option int
 template <class T>
 void manipulateList(LinkedList<T>& list, int& option){
     
     switch (option)
     {
-    case 0:
+    case 0: //Crea elementos random en la lista
     {
         int size;
         cin >> size;
@@ -61,7 +72,7 @@ void manipulateList(LinkedList<T>& list, int& option){
         break;
     }
     case 1:
-    {
+    { //Agrega un elemento al principio de la lista
         cout << "Ingresa el dato: "<<endl;
         T data;
         cin >> data;
@@ -69,7 +80,7 @@ void manipulateList(LinkedList<T>& list, int& option){
         list.print();
         break;
     }
-    case 2:
+    case 2: // Agrega un elemento al final de lista
     {
         cout << "Ingresa el dato: "<<endl;
         T data;
@@ -79,20 +90,23 @@ void manipulateList(LinkedList<T>& list, int& option){
         break;
     }
     
-    case 3:
+    case 3: //Inserta un dato en la posición data
     {
         cout << "Ingresa la posición: " <<endl;
         int index;
+
         cin >> index;
         cout << "Ingresa el dato: "<<endl;
+
         T data;
         cin >> data;
+
         list.insert(index,data);
         list.print();
         break;
     }
     
-    case 4:
+    case 4: // Borra dato dado su valor
     {
         cout << "Ingresa dato a borrar: ";
         T data;
@@ -102,7 +116,7 @@ void manipulateList(LinkedList<T>& list, int& option){
         break;
     }
 
-    case 5:
+    case 5: //Borra dato dada su posición
     {
         cout << "Ingresa índice a borrar: ";
         int index;
@@ -113,7 +127,7 @@ void manipulateList(LinkedList<T>& list, int& option){
 
     }
     
-    case 6:
+    case 6: // Obtiene un dato dependiendo del índice dado
     {
         cout << "Ingresa índice de la lista: ";
         int index;
@@ -122,7 +136,7 @@ void manipulateList(LinkedList<T>& list, int& option){
         break;
     }
 
-    case 7:
+    case 7: // Remplaza dado dato con uno ingresado por el usuario
     {
         cout << "Ingresa dato a remplazar: ";
         T buscar;
@@ -135,7 +149,7 @@ void manipulateList(LinkedList<T>& list, int& option){
         break;
     }
 
-    case 8:
+    case 8: // Remplaza dato dada la posición con valor ingresado por el usuario
     { 
         cout << "Ingresa posición para remplazar: ";
         int index;
@@ -151,7 +165,7 @@ void manipulateList(LinkedList<T>& list, int& option){
         break;
     }
     
-    case 9:
+    case 9: // Busca la posición en la que se encuetra un dato, si no encuentra regresa -1
     {   
         cout << "Ingresa el dato a buscar: ";
         T data;
@@ -160,7 +174,7 @@ void manipulateList(LinkedList<T>& list, int& option){
 
         break;
     }
-    case 10:
+    case 10: //Regresa el dato por medio de [] dado en index
     {   
         cout << "Ingresa el índice de la lista: ";
         int index;
@@ -168,10 +182,11 @@ void manipulateList(LinkedList<T>& list, int& option){
         cout << list[index] << endl;
         break;
     }
-    case 11:
+    case 11: // Remplada dato dado un indice [] y lo remplaza por un dato dado por usuario =
     {
         cout << "Ingresa el índice a remplazar: ";
         int index;
+
         cin >> index;
         cout << "Ingresa dato de remplazo";
         T data;
@@ -181,7 +196,7 @@ void manipulateList(LinkedList<T>& list, int& option){
         list.print();
         break;
     }
-    case 12:
+    case 12: //Iguala una segunda lista con una nueva con 5 valores random
     {    
         LinkedList<T> newCopy;
         createRandomList(newCopy, 5);
@@ -190,56 +205,11 @@ void manipulateList(LinkedList<T>& list, int& option){
         list.print();
         break;
     }
-    case 13:
+    case 13: // Imprime la lista
         list.print();
         break;
     default:
         break;
     }
 
-  
 }
-
-// void eleccionInt(LinkedList<int> &list){
-//     char eleccion; 
-//     int tamanio = 0; 
-//     int datoInt; 
-
-//     cout << "Quieres hacer una lista random? [Y/n]"; 
-//     cin >> eleccion; 
-
-//     if (eleccion == 'Y'  eleccion == 'y'){
-//         cout << "Escribe el tamaño de la lista: ";
-//         cin >> tamanio; 
-
-//         cout << endl; 
-//         cout << "Espere..." << endl; 
-//         cout << "Listo" << endl; 
-
-//         cout << "La lista de tipo entero es: " << endl; 
-//         createListInt(list, tamanio); 
-//         list.print(); 
-//         cout << endl; 
-//     }else{
-//         cout << endl; 
-//         cout << "La lista sera con datos capturados"<< endl; 
-//         cout << endl; 
-//         cout << "Escribe el dato: "; 
-//         cin >> datoInt; 
-//         list.addLast(datoInt);
-//         cout << "Desea escribir otro? [Y/n]" << endl;
-//         cin >> eleccion; 
-//         while(eleccion =='Y'  eleccion == 'y'){
-
-//             cout << "Escribe el dato: "; 
-//             cin >> datoInt; 
-//             list.addLast(datoInt); 
-
-//             cout << "Desea escribir otro? [Y/n]" << endl;
-//             cin >> eleccion; 
-//             }
-//         cout << "Listo, la lista es: " << endl; 
-//         list.print();
-//         cout << endl;
-//     }
-// }
