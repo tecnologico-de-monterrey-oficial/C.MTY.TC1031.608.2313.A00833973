@@ -9,7 +9,6 @@ struct DNode
     DNode(T,DNode*, DNode*);
     
     void operator=(T data);
-    /* data */
 };
 
 template <class T>

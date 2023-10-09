@@ -1,23 +1,41 @@
-//SPLIT
+#pragma once
+
+/**
+ * @brief Divide una cadena en partes usando un carácter como patrón.
+ * Complejidad: O(n)
+ * 
+ * @param str Cadena que se dividirá.
+ * @param pattern Carácter utilizado como patrón para dividir la cadena.
+ * @return Vector de cadenas resultantes después de la división.
+ */
 vector<string> split(string str, char pattern) {
-    
-    int posInit = 0;
-    int posFound = 0;
+    int posInit = 0; 
+    int posFound = 0; 
     string splitted;
-    vector<string> results;
+    vector<string> results; 
     
-    while(posFound >= 0){
-        posFound = str.find(pattern, posInit);
-        splitted = str.substr(posInit, posFound - posInit);
-        posInit = posFound + 1;
-        results.push_back(splitted);
+    // Mientras se encuentren coincidencias del patrón
+    while (posFound >= 0) {
+        posFound = str.find(pattern, posInit); // Busca la siguiente coincidencia del patrón
+        splitted = str.substr(posInit, posFound - posInit); // Obtiene la parte dividida
+        posInit = posFound + 1; // Actualiza la posición de inicio para la próxima búsqueda
+        results.push_back(splitted); // Agrega la parte dividida al vector de resultados
     }
     
-    return results;
+    return results; // Devuelve el vector de resultados
 }
 
-string getMonth(string key){
-    map<string, string>  MONTHS { 
+
+/**
+ * @brief Obtiene el número de mes a partir de un nombre de mes abreviado.
+ * Complejidad: O(1) 
+ * 
+ * @param key Nombre abreviado del mes.
+ * @return Número de mes correspondiente como una cadena.
+ */
+string getMonth(string key) {
+    // Mapeo de nombres de meses abreviados a números de mes
+    map<string, string> MONTHS {
         {"Jan", "01"},
         {"Feb", "02"},
         {"Mar", "03"},
@@ -32,13 +50,25 @@ string getMonth(string key){
         {"Dec", "12"}
     };
 
-    return MONTHS[key] + "";
+    return MONTHS[key] + ""; // Retorna el número de mes correspondiente como una cadena
 }
 
-string addZero(string text, int size){
+
+/**
+ * @brief Agrega ceros a la izquierda de una cadena hasta alcanzar un tamaño específico.
+ * Complejidad: O(n)
+ * @param text Cadena a la que se agregarán ceros a la izquierda.
+ * @param size Tamaño deseado de la cadena resultante.
+ * @return Cadena con ceros agregados a la izquierda para alcanzar el tamaño especificado.
+ */
+
+string addZero(string text, int size) {
     string result = "";
-    for (int i = text.size(); i < size; i++ ){
-            result += "0";
-        }
-    return result + text;
+    // Agrega ceros a la cadena hasta alcanzar el tamaño deseado
+    for (int i = text.size(); i < size; i++) {
+        result += "0";
+    }
+    return result + text; // Devuelve la cadena resultante
 }
+
+

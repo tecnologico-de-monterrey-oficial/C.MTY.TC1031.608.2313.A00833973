@@ -85,7 +85,7 @@ DoublyLinkedList<T>::~DoublyLinkedList()
         delete temp;      // Liberar la memoria del nodo actual.
     }
 
-    // Establecer `head` y `tail` en `nullptr` y el tamaño en 0.
+    // Establecer 'head' y 'tail' en 'nullptr' y el tamaño en 0.
     head = nullptr;
     tail = nullptr;
     size = 0;
@@ -97,7 +97,7 @@ DoublyLinkedList<T>::~DoublyLinkedList()
 template <class T>
 T DoublyLinkedList<T>::getFirst()
 {
-    return head->data; // Retorna el valor almacenado en el nodo `head`.
+    return head->data; // Retorna el valor almacenado en el nodo 'head'.
 }
 
 /// @brief Obtiene el último elemento de la lista.
@@ -106,7 +106,7 @@ T DoublyLinkedList<T>::getFirst()
 template <class T>
 T DoublyLinkedList<T>::getLast()
 {
-    return tail->data; // Retorna el valor almacenado en el nodo `tail`.
+    return tail->data; // Retorna el valor almacenado en el nodo 'tail'.
 }
 
 /**
@@ -129,7 +129,7 @@ void DoublyLinkedList<T>::addFirst(T data)
     }
     else
     {
-        // Si la lista no está vacía, el nuevo nodo se agrega antes del nodo actual `head`.
+        // Si la lista no está vacía, el nuevo nodo se agrega antes del nodo actual 'head'.
         aux->next = head;
         head->prev = aux;
         head = aux;
@@ -158,7 +158,7 @@ void DoublyLinkedList<T>::addLast(T data)
     }
     else
     {
-        // Si la lista no está vacía, el nuevo nodo se agrega después del nodo actual `tail`.
+        // Si la lista no está vacía, el nuevo nodo se agrega después del nodo actual 'tail'.
         aux->prev = tail;
         tail->next = aux;
         tail = aux;
@@ -216,7 +216,7 @@ void DoublyLinkedList<T>::insert(int index, T data)
 
             if (aux2->next == nullptr)
             {
-                tail = aux2; // Actualizar el puntero `tail` si es necesario.
+                tail = aux2; // Actualizar el puntero 'tail' si es necesario.
             }
             else
             {
@@ -240,7 +240,7 @@ void DoublyLinkedList<T>::insert(int index, T data)
 /**
  * @brief Elimina la primera instancia de un elemento con un valor específico.
  * @param find (T): El valor del elemento que se desea eliminar.
- * @return bool: `true` si se eliminó correctamente, `false` si no se encontró el elemento.
+ * @return bool: 'true' si se eliminó correctamente, 'false' si no se encontró el elemento.
  * @complexity O(n)
  */
 template <class T>
@@ -261,14 +261,14 @@ bool DoublyLinkedList<T>::deleteData(T find)
     {
         std::cerr << e.what() << '\n';
     }
-    return false; // Devolver `false` si no se encontró el elemento.
+    return false; // Devolver 'false' si no se encontró el elemento.
 }
  
 
 /**
  * @brief Elimina un elemento en una posición específica de la lista.
  * @param index (int): La posición del elemento que se va a eliminar.
- * @return bool: `true` si se eliminó correctamente, `false` si ocurrió un error.
+ * @return bool: 'true' si se eliminó correctamente, 'false' si ocurrió un error.
  * @complexity O(n)
  */
 template <class T>
@@ -318,7 +318,7 @@ bool DoublyLinkedList<T>::deleteAt(int index)
         std::cerr << e.what() << '\n';
     }
 
-    return false; // Devolver `false` en caso de error.
+    return false; // Devolver 'false' en caso de error.
 }
 
 
@@ -326,7 +326,7 @@ bool DoublyLinkedList<T>::deleteAt(int index)
  * @brief Actualiza la primera instancia de un elemento con un valor específico.
  * @param find (T): El valor del elemento que se desea encontrar y reemplazar.
  * @param replace (T): El nuevo valor con el que se desea reemplazar el elemento.
- * @return bool: `true` si se actualizó correctamente, `false` si no se encontró el elemento.
+ * @return bool: 'true' si se actualizó correctamente, 'false' si no se encontró el elemento.
  * @complexity O(n)
  */
 template <class T>
@@ -348,7 +348,7 @@ bool DoublyLinkedList<T>::updateData(T find, T replace)
         std::cerr << e.what() << '\n';
     }
 
-    return false; // Devolver `false` si no se encontró el elemento.
+    return false; // Devolver 'false' si no se encontró el elemento.
 }
 
 
@@ -356,7 +356,7 @@ bool DoublyLinkedList<T>::updateData(T find, T replace)
  * @brief Actualiza el elemento en una posición específica de la lista.
  * @param index (int): La posición del elemento que se desea actualizar.
  * @param replace (T): El nuevo valor con el que se desea reemplazar el elemento.
- * @return bool: `true` si se actualizó correctamente, `false` si ocurrió un error.
+ * @return bool: 'true' si se actualizó correctamente, 'false' si ocurrió un error.
  * @complexity O(n)
  */
 template <class T>
@@ -378,14 +378,14 @@ bool DoublyLinkedList<T>::updateAt(int index, T replace)
 
         aux->data = replace; // Actualizar el valor del elemento en la posición especificada.
 
-        return true; // Devolver `true` para indicar que la actualización se realizó correctamente.
+        return true; // Devolver 'true' para indicar que la actualización se realizó correctamente.
     }
     catch (const std::exception& e)
     {
         std::cerr << e.what() << '\n';
     }
 
-    return false; // Devolver `false` en caso de error.
+    return false; // Devolver 'false' en caso de error.
 }
 
 

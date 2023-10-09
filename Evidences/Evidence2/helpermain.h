@@ -2,6 +2,12 @@
 #include <string>
 #include "DoublyLinkedList.h"
 
+/**
+ * @brief Lee un archivo de registro de log y lo almacena en una lista doblemente enlazada.
+ * 
+ * @param document Nombre del archivo de registro de log.
+ * @param list Lista doblemente enlazada donde se almacenarán los registros de log..
+ */
 template <class T>
 void readLogDocument(string document, DoublyLinkedList<Log>& list){
     // Variable auxiliar para guardar el contenido del renglón leido
@@ -34,22 +40,35 @@ void readLogDocument(string document, DoublyLinkedList<Log>& list){
     }
 }
 
+/**
+ * @brief Escribe los datos de una lista doblemente enlazada en un archivo.
+ * @param fileName Nombre del archivo en el que se escribirán los datos.
+ * @param list Lista doblemente enlazada que contiene los datos a escribir.
+ * @param asc Indica si los datos se deben escribir en orden ascendente (true) o descendente (false).
+ * Complejidad: O(n) 
+ */
 template <class T>
-void writeFile(string fileName, DoublyLinkedList<T>& list, bool asc){
-    ofstream file(fileName);
-    if (file.is_open())
-    {
-        DNode<T> * aux = (asc)? list.getHead() : list.getTail();
-        
-        while (aux != nullptr){
-            file<< aux->data;
-            aux = (asc)? aux->next : aux->prev;
+void writeFile(string fileName, DoublyLinkedList<T>& list, bool asc) {
+    ofstream file(fileName); // Abre el archivo
+
+    if (file.is_open()) { // Comprueba si el archivo se abrió correctamente.
+        DNode<T>* aux = (asc) ? list.getHead() : list.getTail(); // Inicializa el puntero auxiliar al principio o al final de la lista.
+
+        while (aux != nullptr) { 
+            file << aux->data; // Escribe el nodo en el archivo.
+
+            // Mueve el puntero auxiliar hacia el siguiente nodo, dependiendo del orden especificado.
+            aux = (asc) ? aux->next : aux->prev;
         }
+
         file.close();
-        return;
+        return; 
+    } else {
+        cout << "Unable to open file"; // En caso de que no se pueda abrir el archivo, muestra un mensaje de error.
     }
-    else cout << "Unable to open file";
+    file.close();
 }
+
 
 void writeFile(string fileName, DoublyLinkedList<Log>& list){
     writeFile(fileName,list,true);
@@ -58,9 +77,9 @@ void writeFile(string fileName, DoublyLinkedList<Log>& list){
 
 void welcome(){
     cout << "ERROR REGISTER LOG" << endl;
-    //system("pause");
 }
 
+//Complejidad O(1)
 void menu(int& option){
     cout << endl;
     cout << "MENU"<< endl<<endl;
@@ -75,24 +94,36 @@ void menu(int& option){
     cout << endl;
 }
 
+/**
+ * @brief Solicita al usuario un valor de IP y crea un objeto Log con ese valor.
+ * Complejidad O(1)
+ * @return Objeto Log creado a partir del valor de IP proporcionado por el usuario.
+ */
 Log askLogIP(){
     string ip;
 
-    cout << "Introduce el IP"<<endl;
-    cout << "000.000.000.000" << endl << "Dato: ";
+    cout << "Introduce el IP Formato 000.000.000.000" << endl << "IP: ";
     cin  >> ip;
     Log newLog = Log("", "", "", "", ip, "");
     return newLog;
 }
 
-//FIND
 
+/**
+ * @brief Busca el índice del nodo en una lista doblemente enlazada que tenga el valor de IP más cercano
+ * o igual al valor de IP en el objeto "find".
+ * Complejidad O(n)
+ * @param list Lista doblemente enlazada en la que se realizará la búsqueda.
+ * @param find Objeto Log con el valor de IP a buscar.
+ * @return Índice del nodo en la lista que contiene el valor de IP más cercano o igual al valor de IP en "find".
+ */
 int findNear(DoublyLinkedList<Log>& list, Log &find){
 
     DNode<Log>* aux = list.getHead();
     int i = 0;
 
-    while(aux->data.keyIP < find.keyIP){
+    while(aux->data.keyIP < find.keyIP) //Aumenta el apuntador mientras el valor no sobrepase al de la busqueda
+    { 
         if (aux->next == nullptr){
             return i;
         }
@@ -101,11 +132,21 @@ int findNear(DoublyLinkedList<Log>& list, Log &find){
         }
         i++;
     }
-    return i;
+    return i; //Regresa el indice hasta donde realizó la busqueda
 }
 
 
-void getRange(DoublyLinkedList<Log>& list, DoublyLinkedList<Log>& rangeList){
+
+/**
+ * @brief Obtiene una lista de registros de log que se encuentran en el rango de IP especificado por el usuario.
+ * Complejidad O(n)
+ * @param list Lista de registros de log en la que se buscarán los registros en el rango de IP.
+ * @param rangeList Lista de registros de log donde se almacenarán los registros encontrados en el rango.
+ */
+void getRange(DoublyLinkedList<Log>& list, DoublyLinkedList<Log>& rangeList){ 
+    
+    rangeList.clear(); //Limpia la lista por si cuenta con elementos
+
     //Pide los datos del límite inferior y superior donde se realizará la busqueda
     cout << endl;
     cout << "Left limit" << endl<<endl;
@@ -144,6 +185,12 @@ void getRange(DoublyLinkedList<Log>& list, DoublyLinkedList<Log>& rangeList){
 }
 
 
+/**
+ * @brief Calcula y escribe en un archivo la suma de registros por mes en una lista de registros de log.
+ * Complejidad O(n^2)
+ * @param list Lista de registros de log en la que se realizará la suma de registros por mes.
+ * @param fileName Nombre del archivo en el que se escribirá el resultado.
+ */
 void sumarLogs(DoublyLinkedList<Log> & list, string fileName){
     ofstream file(fileName);
     if (file.is_open())
@@ -151,18 +198,22 @@ void sumarLogs(DoublyLinkedList<Log> & list, string fileName){
         DNode<Log> * aux = list.getHead() ;
         int total = 0;
         while (aux != nullptr){
+            //Escribe el año y mes 
             file << "Logs: " << aux->data.year << " " << aux->data.month;
             int i = 1;
             bool continu = true;
+
+            //Mientras no cambie el mes se aumentará el contador 
             while(aux->next != nullptr && continu){
                 if(aux->data.month == aux->next->data.month){
                     aux = aux->next;
                     i++;
                 }
                 else{
-                    continu = false;
+                    continu = false; //Stop del bucle
                 }
             }
+
             file << " Registros: " << i << endl;
             aux = aux->next;
             total += i;

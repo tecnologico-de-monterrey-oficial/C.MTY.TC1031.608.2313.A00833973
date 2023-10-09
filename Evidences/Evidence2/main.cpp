@@ -34,8 +34,12 @@ int main()
         case 1:
         {
             cout << "Ordenando el archivo" << endl;
-            list.sort(false);
-            orderedIP = false;
+
+            if(orderedIP){
+                list.sort(false);
+                orderedIP = false;
+            }
+            
 
             cout <<"Escribiendo archivo ";
             writeFile(outFile1,list);
@@ -46,8 +50,11 @@ int main()
         case 2:
         {
             cout << "Ordenando el archivo" << endl;
-            list.sort(true);
-            orderedIP = true;
+
+            if(!orderedIP){
+                list.sort(true);
+                orderedIP = true;
+            }
 
             cout <<"Escribiendo archivo ";
             writeFile(outFile2,list);
@@ -60,6 +67,7 @@ int main()
             
             if(!orderedIP){   
                 list.sort(true);
+                orderedIP = true;
             }
             
             getRange(list, listRange);
@@ -74,6 +82,7 @@ int main()
             
             if(!orderedIP){   
                 list.sort(true);
+                orderedIP = true;
             }
             
             getRange(list, listRange);
@@ -85,7 +94,10 @@ int main()
         case 5:
         {
             cout << "Sumar Logs por mes" << endl;
-            list.sort(false);
+            if(!orderedIP){
+                list.sort(true);
+                orderedIP = true;
+            }
             sumarLogs(list,logsMonth);
         }
         default:
