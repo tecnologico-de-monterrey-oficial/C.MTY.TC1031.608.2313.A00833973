@@ -199,7 +199,7 @@ void sumarLogs(DoublyLinkedList<Log> & list, string fileName){
         int total = 0;
         while (aux != nullptr){
             //Escribe el año y mes 
-            file << "Logs: " << aux->data.year << " " << aux->data.month;
+            file << "Date: " << aux->data.year << " " << aux->data.month;
             int i = 1;
             bool continu = true;
 
@@ -214,7 +214,7 @@ void sumarLogs(DoublyLinkedList<Log> & list, string fileName){
                 }
             }
 
-            file << " Registros: " << i << endl;
+            file << " Logs: " << i << endl;
             aux = aux->next;
             total += i;
         }

@@ -95,8 +95,8 @@ int main()
         {
             cout << "Sumar Logs por mes" << endl;
             if(!orderedIP){
-                list.sort(true);
-                orderedIP = true;
+                list.sort(false);
+                orderedIP = false;
             }
             sumarLogs(list,logsMonth);
         }
