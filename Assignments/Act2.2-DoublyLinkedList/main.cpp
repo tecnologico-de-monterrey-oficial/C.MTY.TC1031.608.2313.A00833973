@@ -1,55 +1,47 @@
-#include <iostream>
-#include <string>
-using namespace std;
+//Valeria Pérez Alonso 
+//A00833973
+//PROGRAMA PRINCIPAL ACT2.2
 
-#include "helperMain.h"
+#include <iostream>
+using namespace std;
+#include "helpermain.h"
 
 int main()
 {
-    DoublyLinkedList<string> list;
-    DoublyLinkedList<string> list2;
-    //cout << "Add first" <<endl;
-    list.addFirst("a");
-    list.addFirst("b");
-    list.addFirst("a");
-    list.addFirst("b");
-    //cout << "Add Last"<<endl;
-    list.addLast("c");
+    int  dataType = 0;
+    int option = 0;
 
-    cout << "Insert"<< endl;
-    list.print();
-    list.insert(0,"2");
-    list.insert(1,"2");
-    list.insert(4,"3");
-
-    //cout << "Find data"<<endl;
-
-    cout << list.findData("c")<< endl;
-
-    list.deleteAt(0);
-    list.deleteAt(3);
-    list.deleteAt(5);
-    list.removeBack();
-    list.removeFront();
-
-    list.updateData("b","a");
-    list.updateAt(2,"5");
-
-    list.addFirst("z");
-    list.addLast("q");
-    list.addLast("p");
-    list.addLast("h");
-
-    list.sort();
-    list.print();
-
-    cout << "Duplicate"<< endl;
-    list.duplicate();
-    list.print();
-    list.removeDuplicate();
-    list.print();
+    cout << "Linked List"<< endl;
+    menuDataType(dataType);
+    bool showMenu = true; 
     
-    list2 = list;
-    list2.print();
+    switch (dataType)
+        {
+        case 1: // Menu con tipo de dato int
+        {
+            DoublyLinkedList<int> list;
+            while (option != 18) // 14 salida del programa
+            {
+                menu(option);  // Obtener acción
+                manipulateList(list, option); // Hacer la acción
+            }  
+            break;   
+        }
+            
+        case 2: // Menu con tipo de dato char
+        {
+            DoublyLinkedList<char> list;
+            while (option != 18)
+            {
+                menu(option);
+                manipulateList(list, option);
+            }
+            break;
+        }
+    
+        default:
+            break;
+        }
+ 
     return 0;
 }
