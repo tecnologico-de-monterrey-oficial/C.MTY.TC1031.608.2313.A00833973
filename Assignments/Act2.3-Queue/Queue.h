@@ -58,7 +58,7 @@ T Queue<T>::pop(){
 template<class T>
 T Queue<T>::front(){
     if(rear != NULL){
-        T data = rear -> data; 
+        T data = head -> data; 
         return data;
     }else{
         throw out_of_range("No hay elementos en la lista");

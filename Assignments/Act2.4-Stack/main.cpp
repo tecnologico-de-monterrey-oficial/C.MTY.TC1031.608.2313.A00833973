@@ -4,7 +4,6 @@ using namespace std;
 
 #include "Stack.h"
 
-//Funcion para crear numeros aleatorios de tipo int
 void createListInt(Stack<int> &list, int quantity)
 {
     for (int i = 0; i < quantity; i++)
@@ -18,12 +17,12 @@ int main(){
 
     Stack<int> lista1; 
     int num = 0; 
-    char opciones;
+    int option;
 
-    cout << "Ingresa la cantidad de elementos que conformaran  la lista: "; 
+    cout << "Size of the list: "; 
     cin >> num; 
 
-    cout << "Se creara la lista aleatoria: " << endl; 
+    cout << "Creating random list..." << endl; 
     createListInt(lista1, num);
 
     lista1.print(); 
@@ -31,19 +30,19 @@ int main(){
 
     do {
 
-        cout<< "Que deseas hacer con la lista: " << endl; 
-        cout << "a) Agregamos un elemento a la pila " << endl; 
-        cout << "b) Elimina el elemento arriba de la pila " << endl; 
-        cout << "c) Regresa elelemento arriba de la pila " << endl; 
-        cout << "d) Salir " << endl; 
-        cout << "Elige: ";
-        cin >> opciones; 
+        cout<< "MENU " << endl; 
+        cout << "1. Add element to the stack " << endl; 
+        cout << "2. Delete top element " << endl; 
+        cout << "3. Get top element" << endl; 
+        cout << "4. Exit " << endl; 
+        cout << "Op: ";
+        cin >> option; 
         cout << endl; 
 
-        switch(opciones){
-            case 'a':{
+        switch(option){
+            case 1:{
                 int elemento = 0; 
-                cout << "Escribe el elemento que deseas agregar: "; 
+                cout << "New value: "; 
                 cin >> elemento;
                 cout << endl; 
                 lista1.push(elemento);
@@ -51,14 +50,13 @@ int main(){
                 cout << endl; 
                 break;
             }
-            case 'b':{
+            case 2:{
 
                 try{
                     
-                    cout << "El elemento borrado es: " ;
+                    cout << "Deleted element: " ;
                     cout << lista1.pop();
                     cout << endl; 
-                    cout << "Lista con el dato borrado: " << endl;
                     lista1.print();
                     cout << endl; 
                 }catch(out_of_range &e){
@@ -67,9 +65,9 @@ int main(){
                 }
                 break;
             }
-            case 'c':{
+            case 3:{
                 try{
-                    cout << "El elemento arriba de la lista es: "; 
+                    cout << "Top element of the stack: "; 
                     cout << lista1.top();
                     cout << endl;
                     cout << endl; 
@@ -81,7 +79,7 @@ int main(){
             }
         }
 
-    }while(opciones != 'd'); 
+    }while(option != 4); 
 
 
     return 0; 
