@@ -1,10 +1,10 @@
-#ifndef Heap_h
-#define Heap_h
+#ifndef MinHeap_h
+#define MinHeap_h
 
 #include <vector>
 
 template <class T>
-class Heap
+class MinHeap
 {
 private:
     vector<T> heap;
@@ -12,25 +12,24 @@ private:
     void downSort(int father);
 
 public:
-    Heap();
-    Heap(vector<T> list);
-    Heap(initializer_list<T> list);
+    MinHeap();
+    MinHeap(vector<T> list);
+    MinHeap(initializer_list<T> list);
     T pop();
+    T top();
     void push(T data);
     void print();
     int getSize();
-    T top();
     bool isEmpty();
-    vector<T> & getCopy();
 };
- 
+
 template <class T>
-Heap<T>::Heap()
+MinHeap<T>::MinHeap()
 {
 }
 
 template <class T>
-void Heap<T>::swap(int a, int b)
+void MinHeap<T>::swap(int a, int b)
 {
     T aux = heap[a];
     heap[a] = heap[b];
@@ -38,15 +37,11 @@ void Heap<T>::swap(int a, int b)
 }
 
 template <class T>
-vector<T> & Heap<T>::getCopy(){
-    return heap;
-}
-template <class T>
-void Heap<T>::downSort(int father)
+void MinHeap<T>::downSort(int father)
 {
     int son1;
     int son2;
-    int big;
+    int small;
     // Recorremos el heap en base a si father sigue teniendo hijos
     while (father * 2 + 1 < heap.size())
     {
@@ -57,21 +52,21 @@ void Heap<T>::downSort(int father)
         {
             // Actualizamos el indice del segundo hijo
             son2 = father * 2 + 2;
-            // comparamos cual es el más grande de los hijos
-            heap[son1] > heap[son2] ? big = son1 : big = son2;
+            // comparamos cual es el más chico de los hijos
+            heap[son1] < heap[son2] ? small = son1 : small = son2;
         }
         else
         {
-            // son1 va a ser el hijo más grande
-            big = son1;
+            // son1 va a ser el hijo más chico
+            small = son1;
         }
-        // Comparamos si el más grande de los hijos es más grande a father
-        if (heap[big] > heap[father])
+        // Comparamos si el más chico de los hijos es más chico a father
+        if (heap[small] < heap[father])
         {
             // intercambiamos father con big
-            swap(father, big);
-            // Cambiamos el valor del padre por el más grande de los hijos
-            father = big;
+            swap(father, small);
+            // Cambiamos el valor del padre por el más chico de los hijos
+            father = small;
         }
         else
         {
@@ -81,9 +76,8 @@ void Heap<T>::downSort(int father)
     }
 }
 
-
 template <class T>
-Heap<T>::Heap(vector<T> list)
+MinHeap<T>::MinHeap(vector<T> list)
 {
     // Actualizar el vector heap igual a list
     heap = list;
@@ -100,7 +94,7 @@ Heap<T>::Heap(vector<T> list)
 }
 
 template <class T>
-Heap<T>::Heap(initializer_list<T> list) {
+MinHeap<T>::MinHeap(initializer_list<T> list) {
     // Actualizar el vector heap igual a list
     heap = list;
     // Encontramos cual es el último de los padres
@@ -116,7 +110,7 @@ Heap<T>::Heap(initializer_list<T> list) {
 }
 
 template <class T>
-T Heap<T>::pop() {
+T MinHeap<T>::pop() {
     // Validamos si el heap esta vacío
     if (!isEmpty()) {
         // Guardamos el valro del elemento del mayor prioridad
@@ -135,7 +129,7 @@ T Heap<T>::pop() {
 }
 
 template <class T>
-void Heap<T>::push(T data) {
+void MinHeap<T>::push(T data) {
     // Agregamos un elemento al final de la lista
     heap.push_back(data);
     // Creamos un a variable auxiliar que va a ser a la última posición del heap
@@ -144,8 +138,8 @@ void Heap<T>::push(T data) {
     while (son > 0) {
         // Calculamos cual es su papá
         int father = (son - 1) / 2;
-        // Comparamos si el hijo es mayor que el padre
-        if (heap[son] > heap[father]) {
+        // Comparamos si el hijo es menor que el padre
+        if (heap[son] < heap[father]) {
             // Los intercambiamos
             swap(father, son);
             // Cambiamos el hijo por el padre
@@ -156,9 +150,8 @@ void Heap<T>::push(T data) {
         }
     }
 }
-
 template <class T>
-T Heap<T>::top(){
+T MinHeap<T>::top(){
     if (isEmpty()){
         throw out_of_range("The list doesn't have elements");
     }else{
@@ -166,13 +159,14 @@ T Heap<T>::top(){
     }
     
 }
+
 template <class T>
-bool Heap<T>::isEmpty() {
+bool MinHeap<T>::isEmpty() {
     return heap.empty();
 }
 
 template <class T>
-void Heap<T>::print()
+void MinHeap<T>::print()
 {
     for (auto el : heap)
     {
@@ -182,9 +176,9 @@ void Heap<T>::print()
 }
 
 template <class T>
-int Heap<T>::getSize()
+int MinHeap<T>::getSize()
 {
     return heap.size();
 }
 
-#endif /* Heap_h */
+#endif /* MinHeap_h */
