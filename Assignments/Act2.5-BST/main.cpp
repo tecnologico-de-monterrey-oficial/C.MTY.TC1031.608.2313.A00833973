@@ -2,7 +2,6 @@
 using namespace std;
 
 #include "BST.h"
-#include "mainHelper.h"
 
 void createListInt(BST<int> &list, int quantity)
 {
