@@ -1,47 +1,31 @@
 
-#include <iostream>
+#ifndef HashStudentId_h
+#define HashStudentId_h
 
+#include <iostream>
 #include <vector>
+#include <algorithm>
+
 using namespace std;
 
 class HashStudentId {
 private:
     vector<string> table;
-    vector<char> status;
-    int hash(string);
+    int hash(string studentId);
+    vector<bool> status;
 public:
     HashStudentId();
     void insert(string studentId);
-    int FindStudentId(string studentId);
-    int erase(string studentId);
+    void remove(string studentId);
+    int findStudentId(string studentId);
     void print();
 };
 
-HashStudentId::HashStudentId()
-{
+HashStudentId::HashStudentId() {
     table.resize(101);
-    status = vector<char>(101,'v');
+    status.resize(101, false);
 }
 
-void HashStudentId::insert(string studentId){
-    int index = hash(studentId);
-    int sIn = index;
-
-    if (table [index] == ""){
-        table[index] = studentId;
-        status[index] = 'o';
-    }
-    else{
-        while(status[sIn] != 'v'){ 
-            sIn =  (sIn + 1) % 101;
-            if (index == sIn ){
-                return;
-            }
-        }
-        table[sIn] = studentId;
-        status[sIn]= 'o';
-    }    
-}
 
 int HashStudentId::hash(string studentId){
 
@@ -51,32 +35,63 @@ int HashStudentId::hash(string studentId){
 }
 
 
-int HashStudentId::FindStudentId(string studentId){
+void HashStudentId::insert(string studentId) {
     int index = hash(studentId);
-    if(table[index] == studentId){
-        return index;
-    }
-
-    int sIn = (index + 1) % 101;
-    while((status[sIn] != 'v') && index != sIn ){ 
-        if(table[sIn] == studentId){
-            return sIn;
+    // Validamos que el espacio en la tabla en index este vacio
+    if (table[index].empty()) {
+        table[index] = studentId;
+        status[index] = true;
+    } else {
+        int newIndex = (index+1)%table.size();
+        // Recorro la tabla mientras no le de la vuelta y hasta que ecuentre un espacio vacio
+        while (newIndex != index && !table[newIndex].empty()) {
+            newIndex = (newIndex+1)%table.size();
         }
-        sIn =  (sIn + 1) % 101;
+        // Validamos que si hubo un espacio vacío
+        if (newIndex != index) {
+            table[newIndex] = studentId;
+        } else {
+            throw out_of_range("La tabla esta llena");
+        }
     }
-    return -1;
 }
 
-
-int HashStudentId::erase(string studentId){
-    int index = FindStudentId(studentId);
-    table[index] = "";
-    status[index] = 'b';
+int HashStudentId::findStudentId(string studentId) {
+    int index = hash(studentId);
+    if (table[index] == studentId) {
+        return index;
+    } else {
+        // Hay que buscarlo en la tabla
+        // Recorremos la tabla hasta encontrarlo o encontrar un elemento vacío o le damos la vuelta
+        int newIndex = (index+1)%table.size();
+        while (newIndex != index && (!table[newIndex].empty() || status[newIndex])) {
+            // Validamos si lo encontramos
+            if (table[newIndex] == studentId) {
+                return newIndex;
+            } else {
+                newIndex = (newIndex+1)%table.size();
+            }
+        }
+        return -1;
+    }
 }
 
+void HashStudentId::remove(string studentId) {
+    int index = findStudentId(studentId);
+    if (index != -1) {
+        table[index] = "";
+        status[index] = true;
+    } else {
+        throw invalid_argument("El valor a borrar no se encuentra");
+    }
+}
 
-void HashStudentId::print(){
-    for (int i =0; i < 101; i++){
+void HashStudentId::print() {
+    for (int i=0; i<table.size(); i++) {
         cout << i << ": " << table[i] << endl;
     }
+    cout << endl;
 }
+
+
+#endif /* HashStudentId_h */

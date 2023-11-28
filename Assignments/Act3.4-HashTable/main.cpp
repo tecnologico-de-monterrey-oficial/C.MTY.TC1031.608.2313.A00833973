@@ -2,49 +2,81 @@
 #include <fstream>
 #include <sstream>
 #include <vector>
-
 #include "HashStudentId.h"
+
 using namespace std;
 
-template <class T>
-void printVector(vector<T> list){
-    for(auto e:list){
-        cout << e << endl;
-    }
-}
-
-int main()
-{
-    ifstream fileIn("matriculas.txt");
-    vector<string> list;
-    string matricula;
+int main() {
     HashStudentId matri;
-    while (getline(fileIn,matricula)) { 
-        
-        // Creamos una variable auxiliar ss para recorrer campo por campo
-        stringstream ss(matricula);
-        // Guardamos la información de cada campo en la variable auxiliar correspondiente
-        ss >> matricula;
-        list.push_back(matricula);
+    int choice;
+
+    while (true) {
+        // Mostrar el menú
+        cout << "\nMenu:" << endl;
+        cout << "0. Leer matrículas desde archivo\n";
+        cout << "1. Insertar matrícula\n";
+        cout << "2. Eliminar matrícula\n";
+        cout << "3. Buscar matrícula\n";
+        cout << "4. Mostrar tabla hash\n";
+        cout << "5. Salir\n";
+        cout << "Ingrese su elección: ";
+        cin >> choice;
+
+        switch (choice) {
+            case 0: {
+                // Leer matrículas desde archivo
+                ifstream fileIn("matriculas.txt");
+                string matriculaFromFile;
+                while (getline(fileIn, matriculaFromFile)) {
+                    matri.insert(matriculaFromFile);
+                }
+                cout << "Matrículas leídas desde el archivo.\n";
+                break;
+            }
+            case 1: {
+                // Insertar matrícula
+                string matricula;
+                cout << "Ingrese la matrícula a insertar: ";
+                cin >> matricula;
+                matri.insert(matricula);
+                cout << "Matrícula insertada con éxito.\n";
+                break;
+            }
+            case 2: {
+                // Eliminar matrícula
+                string matricula;
+                cout << "Ingrese la matrícula a eliminar: ";
+                cin >> matricula;
+                matri.remove(matricula);
+                cout << "Matrícula eliminada con éxito.\n";
+                break;
+            }
+            case 3: {
+                // Buscar matrícula
+                string matricula;
+                cout << "Ingrese la matrícula a buscar: ";
+                cin >> matricula;
+                int index = matri.findStudentId(matricula);
+                if (index != -1) {
+                    cout << "La matrícula existe en la tabla hash en la posición " << index << ".\n";
+                } else {
+                    cout << "La matrícula no existe en la tabla hash.\n";
+                }
+                break;
+            }
+            case 4:
+                // Mostrar tabla hash
+                matri.print();
+                break;
+            
+            case 5:
+                // Salir
+                cout << "Saliendo del programa.\n";
+                return 0;
+            default:
+                cout << "Opción no válida. Intente de nuevo.\n";
+        }
     }
 
-    for (auto e:list){
-       matri.insert(e);
-    }
-
-    matri.print();
-    
-    matri.erase("A00836129");
-    
-    for (auto e:list){
-        cout << matri.FindStudentId(e) << endl;
-    }
-    // printVector(list); 
-    // string text = "A0012232";
-    // text = text.erase(0,1);
-    // cout << stoi(text);
-
-    cout << endl;
-    //matri.print();
     return 0;
 }
