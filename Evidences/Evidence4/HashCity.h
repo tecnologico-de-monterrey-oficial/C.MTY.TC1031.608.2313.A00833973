@@ -1,6 +1,6 @@
 
-#ifndef HashStudentId_h
-#define HashStudentId_h
+#ifndef HashCity_h
+#define HashCity_h
 
 #include <iostream>
 #include <vector>
@@ -8,61 +8,80 @@
 
 using namespace std;
 
-class HashStudentId {
+class HashCity {
 private:
     vector<string> table;
-    int hash(string studentId);
+    int hash(string city);
     vector<bool> status;
+    int size;
 public:
-    HashStudentId();
-    void insert(string studentId);
-    void remove(string studentId);
-    int findStudentId(string studentId);
+    HashCity();
+    int insert(string city);
+    void remove(string city);
+    int findCity(string city);
+    int Size(){return size;}
+    string city(int index);
     void print();
 };
 
-HashStudentId::HashStudentId() {
-    table.resize(101);
-    status.resize(101, false);
+HashCity::HashCity() {
+    size = 101;
+    table.resize(size);
+    status.resize(size, false);
+}
+
+string HashCity::city(int index){
+    return table[index];
+}
+
+int HashCity::hash(string city){
+    int hashValue = 0;
+    // Sumamos los códigos ASCII de los caracteres en el nombre de la ciudad
+    for (char c : city) {
+        hashValue += static_cast<int>(c) + 12;
+    }
+    hashValue = (hashValue * 314 / 5) % size;
+
+    return hashValue;
 }
 
 
-int HashStudentId::hash(string studentId){
-
-    string el = studentId.erase(0,1);
-    int index = stoi(el) % 101;  
-    return index;
-}
-
-
-void HashStudentId::insert(string studentId) {
-    int find = findStudentId(studentId);
+int HashCity::insert(string city) {
+    int find = findCity(city);
     if (find !=-1){
         throw out_of_range("El dato existe en la tabla");
     }
-    int index = hash(studentId);
+    int index = hash(city);
     // Validamos que el espacio en la tabla en index este vacio
     if (table[index].empty()) {
-        table[index] = studentId;
+        table[index] = city;
         status[index] = true;
+        return index;
     } else {
-        int newIndex = (index+1)%table.size();
+        int newIndex = index;
         // Recorro la tabla mientras no le de la vuelta y hasta que ecuentre un espacio vacio
-        while (newIndex != index && !table[newIndex].empty()) {
-            newIndex = (newIndex+1)%table.size();
+        do{
+            if(table[newIndex] == city){
+                return -1;
+            }
+            newIndex = (newIndex + 1) % table.size();
         }
+        while (newIndex != index && !table[newIndex].empty());
+
         // Validamos que si hubo un espacio vacío
         if (newIndex != index) {
-            table[newIndex] = studentId;
+            table[newIndex] = city;
+            return newIndex;
         } else {
             throw out_of_range("La tabla esta llena");
         }
+        
     }
 }
 
-int HashStudentId::findStudentId(string studentId) {
-    int index = hash(studentId);
-    if (table[index] == studentId) {
+int HashCity::findCity(string city) {
+    int index = hash(city);
+    if (table[index] == city) {
         return index;
     } else {
         // Hay que buscarlo en la tabla
@@ -70,7 +89,7 @@ int HashStudentId::findStudentId(string studentId) {
         int newIndex = (index+1)%table.size();
         while (newIndex != index && (!table[newIndex].empty() || status[newIndex])) {
             // Validamos si lo encontramos
-            if (table[newIndex] == studentId) {
+            if (table[newIndex] == city) {
                 return newIndex;
             } else {
                 newIndex = (newIndex+1)%table.size();
@@ -80,8 +99,8 @@ int HashStudentId::findStudentId(string studentId) {
     }
 }
 
-void HashStudentId::remove(string studentId) {
-    int index = findStudentId(studentId);
+void HashCity::remove(string city) {
+    int index = findCity(city);
     if (index != -1) {
         table[index] = "";
         status[index] = true;
@@ -90,7 +109,7 @@ void HashStudentId::remove(string studentId) {
     }
 }
 
-void HashStudentId::print() {
+void HashCity::print() {
     for (int i=0; i<table.size(); i++) {
         cout << i << ": " << table[i] << endl;
     }
@@ -98,4 +117,4 @@ void HashStudentId::print() {
 }
 
 
-#endif /* HashStudentId_h */
+#endif /* HashCity_h */

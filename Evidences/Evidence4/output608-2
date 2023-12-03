@@ -1,0 +1,388 @@
+Ankara
+	Istanbul [ 576km 5:36h ] 
+
+Istanbul
+	Ankara [ 576km 5:36h ] 
+	Sofia [ 789km 11:40h ] 
+
+Athens
+	Thessaloniki [ 502km 5:23h ] 
+	Patras [ 220km 4:40h ] 
+
+Thessaloniki
+	Athens [ 502km 5:10h ] 
+	Skopje [ 246km 6:20h ] 
+	Sofia [ 365km 5:50h ] 
+
+Patras
+	Athens [ 220km 4:40h ] 
+	Bari [ 970km 16:30h ] 
+
+Barcelona
+	Montpellier [ 160km 1:55h ] 
+	Madrid [ 625km 2:45h ] 
+	Sevilla [ 550km 5:40h ] 
+	Valencia [ 310km 3:15h ] 
+
+Montpellier
+	Barcelona [ 160km 1:55h ] 
+	Marseille [ 150km 1:18h ] 
+
+Madrid
+	Barcelona [ 625km 2:30h ] 
+	Valencia [ 309km 2:35h ] 
+	Málaga [ 504km 2:40h ] 
+	Sevilla [ 474km 2:35h ] 
+	Santiago de Compostela [ 610km 7:45h ] 
+	Santander [ 400km 3:50h ] 
+	Pamplona [ 325km 5:20h ] 
+	Bordeaux [ 673km 7:45h ] 
+
+Sevilla
+	Barcelona [ 550km 5:40h ] 
+	Madrid [ 474km 2:35h ] 
+	Faro [ 274km 5:10h ] 
+
+Valencia
+	Barcelona [ 310km 3:15h ] 
+	Madrid [ 309km 2:35h ] 
+
+Belfast
+	Dublin [ 270km 3:00h ] 
+
+Dublin
+	Belfast [ 270km 3:00h ] 
+	Cork [ 266km 3:15h ] 
+	Holyhead [ 224km 1:25h ] 
+	Westport [ 234km 3:30h ] 
+
+Belgrade
+	Zagreb [ 357km 5:30h ] 
+	Bucharest [ 620km 9:25h ] 
+	Sofia [ 482km 11:25h ] 
+	Skopje [ 250km 4:15h ] 
+	Budapest [ 412km 8:30h ] 
+
+Zagreb
+	Belgrade [ 357km 5:30h ] 
+	Budapest [ 360km 5:36h ] 
+	Ljubljana [ 166km 2:51h ] 
+	Split [ 418km 6:40h ] 
+
+Bari
+	Patras [ 970km 16:30h ] 
+
+Bucharest
+	Belgrade [ 620km 9:25h ] 
+	Budapest [ 513km 8:50h ] 
+	Sofia [ 487km 7:40h ] 
+
+Sofia
+	Belgrade [ 482km 11:25h ] 
+	Bucharest [ 487km 7:40h ] 
+	Skopje [ 264km 4:50h ] 
+	Thessaloniki [ 365km 5:50h ] 
+	Istanbul [ 789km 11:40h ] 
+
+Skopje
+	Belgrade [ 250km 4:15h ] 
+	Thessaloniki [ 246km 6:20h ] 
+	Sofia [ 264km 4:50h ] 
+
+Berlin
+	Amsterdam [ 650km 3:19h ] 
+	Cologne [ 507km 2:58h ] 
+	Munich [ 585km 5:19h ] 
+	Prague [ 267km 4:25h ] 
+	Poznan [ 274km 2:59h ] 
+	Hamburg [ 280km 1:44h ] 
+
+Amsterdam
+	Berlin [ 650km 3:19h ] 
+	Brussels [ 214km 2:25h ] 
+	Cologne [ 220km 3:20h ] 
+
+Cologne
+	Berlin [ 507km 2:58h ] 
+	Brussels [ 190km 1:45h ] 
+	Amsterdam [ 220km 3:20h ] 
+	Frankfurt [ 165km 1:25h ] 
+
+Munich
+	Berlin [ 585km 5:17h ] 
+	Hamburg [ 631km 5:52h ] 
+	Vienna [ 485km 4:15h ] 
+	Frankfurt [ 494km 3:30h ] 
+	Milan [ 504km 6:10h ] 
+	Prague [ 407km 5:20h ] 
+
+Prague
+	Berlin [ 267km 4:25h ] 
+	Munich [ 407km 5:20h ] 
+	Vienna [ 357km 4:50h ] 
+	Wroclaw [ 334km 5:24h ] 
+
+Poznan
+	Berlin [ 274km 2:59h ] 
+	Warsaw [ 309km 2:40h ] 
+
+Bern
+	Milan [ 260km 3:35h ] 
+	Rome [ 580km 7:20h ] 
+	Frankfurt [ 460km 4:47h ] 
+	Lyon [ 240km 3:50h ] 
+
+Milan
+	Bern [ 260km 3:35h ] 
+	Bologna [ 67km 1:14h ] 
+	Munich [ 504km 6:10h ] 
+	Nice [ 255km 3:40h ] 
+	Venice [ 256km 2:20h ] 
+
+Rome
+	Bern [ 580km 7:20h ] 
+	Napoles [ 218km 1:10h ] 
+	Florence [ 276km 1:25h ] 
+
+Frankfurt
+	Bern [ 460km 4:47h ] 
+	Brussels [ 457km 4:18h ] 
+	Cologne [ 165km 1:25h ] 
+	Hamburg [ 494km 3:02h ] 
+	Munich [ 494km 3:30h ] 
+	Paris [ 580km 3:07h ] 
+
+Lyon
+	Bern [ 240km 3:50h ] 
+	Bordeaux [ 459km 2:41h ] 
+	Marseille [ 314km 1:40h ] 
+	Paris [ 490km 2:00h ] 
+
+Bialystok
+	Vilnius [ 322km 4:24h ] 
+	Warsaw [ 214km 3:20h ] 
+
+Vilnius
+	Bialystok [ 322km 4:24h ] 
+	Klaipeda [ 313km 4:52h ] 
+	Riga [ 308km 4:20h ] 
+
+Bologna
+	Milan [ 67km 1:14h ] 
+	Florence [ 114km 1:30h ] 
+
+Florence
+	Bologna [ 114km 1:30h ] 
+	Rome [ 276km 1:25h ] 
+	Venice [ 285km 2:30h ] 
+
+Bordeaux
+	Lyon [ 459km 2:41h ] 
+	Madrid [ 673km 7:45h ] 
+	Paris [ 516km 2:04h ] 
+
+Brussels
+	Frankfurt [ 457km 4:18h ] 
+	London [ 380km 2:03h ] 
+	Cologne [ 190km 1:45h ] 
+	Amsterdam [ 214km 2:25h ] 
+	Paris [ 304km 1:22h ] 
+
+London
+	Brussels [ 380km 2:03h ] 
+	Penzance [ 553km 5:37h ] 
+	Bristol [ 152km 1:33h ] 
+	Birmingham [ 193km 1:24h ] 
+	Paris [ 346km 2:15h ] 
+
+Budapest
+	Krakau [ 470km 6:15h ] 
+	Vienna [ 248km 2:56h ] 
+	Bucharest [ 513km 8:50h ] 
+	Ljubljana [ 490km 10:06h ] 
+	Zagreb [ 360km 5:36h ] 
+	Belgrade [ 412km 8:30h ] 
+
+Krakau
+	Budapest [ 470km 6:15h ] 
+
+Vienna
+	Budapest [ 248km 2:56h ] 
+	Munich [ 485km 4:15h ] 
+	Prague [ 357km 4:50h ] 
+	Venice [ 452km 5:50h ] 
+	Warsaw [ 625km 9:10h ] 
+
+Ljubljana
+	Budapest [ 490km 10:06h ] 
+	Zagreb [ 166km 2:51h ] 
+	Venice [ 165km 2:45h ] 
+
+Copenhagen
+	Stockholm [ 550km 5:20h ] 
+	Hamburg [ 618km 6:44h ] 
+	Oslo [ 570km 7:45h ] 
+
+Stockholm
+	Copenhagen [ 550km 5:20h ] 
+	Kiruna [ 1300km 14:37h ] 
+	Oslo [ 520km 5:30h ] 
+	Östersund [ 422km 5:50h ] 
+	Tallinn [ 310km 3:30h ] 
+
+Cork
+	Dublin [ 266km 3:15h ] 
+
+Edinburgh
+	Birmingham [ 442km 4:47h ] 
+	Aberdeen [ 262km 3:50h ] 
+	Glasgow [ 79km 1:14h ] 
+
+Birmingham
+	Edinburgh [ 442km 4:47h ] 
+	Holyhead [ 344km 4:18h ] 
+	London [ 193km 1:24h ] 
+
+Aberdeen
+	Edinburgh [ 262km 3:50h ] 
+
+Glasgow
+	Edinburgh [ 79km 1:14h ] 
+
+Hamburg
+	Copenhagen [ 618km 6:44h ] 
+	Berlin [ 280km 1:44h ] 
+	Munich [ 631km 5:52h ] 
+	Frankfurt [ 494km 3:02h ] 
+
+Helsinki
+	Tallinn [ 328km 3:50h ] 
+	Turku [ 187km 3:20h ] 
+	Rovaniemi [ 610km 9:58h ] 
+
+Tallinn
+	Helsinki [ 328km 3:50h ] 
+	Riga [ 342km 5:50h ] 
+	Stockholm [ 310km 3:30h ] 
+
+Turku
+	Helsinki [ 187km 3:20h ] 
+
+Rovaniemi
+	Helsinki [ 610km 9:58h ] 
+
+Holyhead
+	Birmingham [ 344km 4:18h ] 
+	Dublin [ 224km 1:25h ] 
+
+Kiruna
+	Stockholm [ 1300km 14:37h ] 
+
+Klaipeda
+	Vilnius [ 313km 4:52h ] 
+
+Lisboa
+	Faro [ 275km 4:10h ] 
+	Porto [ 310km 2:50h ] 
+
+Faro
+	Lisboa [ 275km 4:10h ] 
+	Sevilla [ 274km 5:10h ] 
+
+Porto
+	Lisboa [ 310km 2:50h ] 
+
+Penzance
+	London [ 553km 5:37h ] 
+
+Bristol
+	London [ 152km 1:33h ] 
+
+Málaga
+	Madrid [ 504km 2:40h ] 
+
+Santiago de Compostela
+	Madrid [ 610km 7:45h ] 
+
+Santander
+	Madrid [ 400km 3:50h ] 
+
+Pamplona
+	Madrid [ 325km 5:20h ] 
+
+Marseille
+	Lyon [ 314km 1:40h ] 
+	Montpellier [ 150km 1:18h ] 
+	Nice [ 180km 2:53h ] 
+
+Napoles
+	Rome [ 218km 1:10h ] 
+	Catania [ 310km 6:20h ] 
+
+Catania
+	Napoles [ 310km 6:20h ] 
+
+Nice
+	Milan [ 255km 3:40h ] 
+	Marseille [ 180km 2:53h ] 
+
+Oslo
+	Stockholm [ 520km 5:30h ] 
+	Bergen [ 519km 7:15h ] 
+	Copenhagen [ 570km 7:45h ] 
+
+Bergen
+	Oslo [ 519km 7:15h ] 
+
+Östersund
+	Stockholm [ 422km 5:50h ] 
+	Trondheim [ 370km 4:45h ] 
+
+Trondheim
+	Östersund [ 370km 4:45h ] 
+
+Paris
+	Bordeaux [ 516km 2:04h ] 
+	Lyon [ 490km 2:00h ] 
+	Frankfurt [ 580km 3:07h ] 
+	Rennes [ 350km 2:05h ] 
+	Brussels [ 304km 1:22h ] 
+	London [ 346km 2:15h ] 
+
+Rennes
+	Paris [ 350km 2:05h ] 
+
+Wroclaw
+	Prague [ 334km 5:24h ] 
+	Warsaw [ 383km 4:40h ] 
+
+Riga
+	Vilnius [ 308km 4:20h ] 
+	Tallinn [ 342km 5:50h ] 
+
+Split
+	Zagreb [ 418km 6:40h ] 
+
+Venice
+	Vienna [ 452km 5:50h ] 
+	Ljubljana [ 165km 2:45h ] 
+	Milan [ 256km 2:20h ] 
+	Florence [ 285km 2:30h ] 
+
+Warsaw
+	Poznan [ 309km 2:40h ] 
+	Wroclaw [ 383km 4:40h ] 
+	Vienna [ 625km 9:10h ] 
+	Krakow [ 239km 3:20h ] 
+	Gdansk [ 321km 4:50h ] 
+	Bialystok [ 214km 3:20h ] 
+
+Krakow
+	Warsaw [ 239km 3:20h ] 
+
+Gdansk
+	Warsaw [ 321km 4:50h ] 
+
+Westport
+	Dublin [ 234km 3:30h ] 
+
